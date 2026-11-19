@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chainline Cycle Co-op</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#f4f6f8; --surface:#ffffff; --ink:#14213d; --muted:#4f5d6e; --line:#d3dae2;
+  --accent:#ffd23f; --accent-ink:#14213d; --green:#1f7a5c;
+  --head:"Bricolage Grotesque","Arial Narrow",Arial,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1626; --surface:#17233a; --ink:#eef2f7; --muted:#a3b0c2; --line:#2a3a56;
+    --green:#4cc9a0; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1626; --surface:#17233a; --ink:#eef2f7; --muted:#a3b0c2; --line:#2a3a56;
+  --green:#4cc9a0; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:1rem;padding-bottom:1rem;flex-wrap:wrap}
+.logo{font:800 1.35rem/1 var(--head);text-decoration:none;letter-spacing:-.01em}
+nav{display:flex;gap:1.5rem;font-weight:500}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:3rem;align-items:center;padding:4.5rem 0 4rem}
+h1{font:800 clamp(2.6rem,6vw,4.5rem)/1.02 var(--head);letter-spacing:-.03em;margin:0 0 1.25rem}
+.lede{color:var(--muted);max-width:34rem;margin:0 0 1.75rem}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font:700 1rem var(--body);padding:.8rem 1.4rem;border-radius:.5rem;text-decoration:none;border:0;cursor:pointer}
+.btn:hover{filter:brightness(.95)}
+.ticket{background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:1.5rem;position:relative}
+.ticket::before{content:"";position:absolute;left:1.5rem;right:1.5rem;top:4.1rem;border-top:2px dashed var(--line)}
+.ticket h2{font:700 1.15rem var(--head);margin:0 0 1.75rem}
+label{display:block;font-weight:600;font-size:.95rem;margin:1rem 0 .35rem}
+select{width:100%;padding:.7rem .8rem;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:.5rem}
+.estimate{display:flex;justify-content:space-between;align-items:baseline;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--line)}
+.estimate strong{font:800 2.25rem/1 var(--head)}
+.estimate span{color:var(--muted)}
+#note{color:var(--green);font-weight:600;min-height:1.6em;margin:.75rem 0 0}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2.sec{font:700 clamp(1.7rem,3.5vw,2.3rem)/1.1 var(--head);letter-spacing:-.02em;margin:0 0 2rem}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2rem}
+.services h3{font:700 1.2rem var(--head);margin:0 0 .4rem}
+.services p{margin:0;color:var(--muted)}
+.price{display:inline-block;margin-top:.6rem;font-weight:600;color:var(--green)}
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.5rem 1.5rem}
+dt{font-weight:600}dd{margin:0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:1.5rem 0;color:var(--muted);font-size:.95rem}
+@media (max-width:760px){
+  .hero,.visit{grid-template-columns:1fr;gap:2rem}
+  .hero{padding:2.5rem 0}
+  nav{gap:1rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Chainline Cycle Co-op</a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <h1>Your bike, back on the road by Friday.</h1>
+      <p class="lede">We’re a volunteer-run repair shop. Drop your bike off, get a flat-rate quote, and pick it up when it’s done. This is a dummy site, so none of it is real.</p>
+      <a class="btn" href="#visit">Book a drop-off</a>
+    </div>
+
+    <div class="ticket">
+      <h2>Repair ticket</h2>
+      <label for="job">What does your bike need?</label>
+      <select id="job">
+        <option value="25">Flat tire fix</option>
+        <option value="45">Brake adjustment</option>
+        <option value="60">Gear tune-up</option>
+        <option value="120">Full overhaul</option>
+      </select>
+      <label for="type">Bike type</label>
+      <select id="type">
+        <option value="0">Standard</option>
+        <option value="15">E-bike</option>
+        <option value="10">Cargo bike</option>
+      </select>
+      <div class="estimate"><span>Flat-rate estimate</span><strong id="total">$25</strong></div>
+      <p id="note" role="status"></p>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <h2 class="sec">What we fix</h2>
+      <div class="services">
+        <div><h3>Flats and tires</h3><p>Patch or replace a tube, check the rim tape, and set the right pressure.</p><span class="price">From $25</span></div>
+        <div><h3>Brakes</h3><p>Adjust or replace pads, cables, and rotors so you stop when you mean to.</p><span class="price">From $45</span></div>
+        <div><h3>Gears and chain</h3><p>Index the shifting, clean the drivetrain, and swap worn chains.</p><span class="price">From $60</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap visit">
+      <div>
+        <h2 class="sec">Visit the shop</h2>
+        <p style="color:var(--muted);margin:0">12 Example Street, Placeholder City. Bring your bike and a lock; we’ll tag it and give you a pickup date.</p>
+      </div>
+      <dl>
+        <dt>Tue–Fri</dt><dd>10:00–18:00</dd>
+        <dt>Saturday</dt><dd>9:00–15:00</dd>
+        <dt>Sun–Mon</dt><dd>Closed</dd>
+        <dt>Email</dt><dd>hello@chainline.example</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Chainline Cycle Co-op. Dummy content for demonstration.</div></footer>
+
+<script>
+(function(){
+  var job=document.getElementById('job'),type=document.getElementById('type'),
+      total=document.getElementById('total'),note=document.getElementById('note');
+  function update(){
+    var t=parseInt(job.value,10)+parseInt(type.value,10);
+    total.textContent='$'+t;
+    note.textContent=job.options[job.selectedIndex].text+' on a '+type.options[type.selectedIndex].text.toLowerCase()+' bike: ready in 2–3 days.';
+  }
+  job.addEventListener('change',update);
+  type.addEventListener('change',update);
+})();
+</script>
+</body>
+</html>
